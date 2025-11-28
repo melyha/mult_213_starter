@@ -173,3 +173,50 @@ button:active {
     justify-content: flex-start;
 }
 
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    fieldset {
+        padding: 1.5rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .card p {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    fieldset {
+        padding: 1rem;
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+    
+    button {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
