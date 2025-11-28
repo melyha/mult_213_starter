@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Stock Price Tracker</title>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -19,18 +19,20 @@
             <fieldset>
                 <legend>Search Stock by Ticker Symbol</legend>
                 <label for="ticker">Ticker Symbol</label>
-                <input id="ticker" placeholder="e.g., AAPL, TSLA, IBM" required />
+                <input id="ticker" placeholder="e.g., AAPL, TSLA, IBM" required>
                 <button type="submit">Get Stock Info</button>
             </fieldset>
         </form>
 
-        <section id="stock-results" class="card">
+        <div id="stock-results" class="card">
+             <h2>Stock Information</h2>
             <p>Enter a stock ticker symbol to get started...</p>
-        </section>
+        </div>
 
 
-        <section id="error-message" class="card" style="display: none; background-color: #ffebee; color: #c62828;">
-        </section>
+        <div id="error-message" class="card" style="display: none; background-color: #ffebee; color: #c62828;">
+            <h2>Error</h2>
+        </div>
     </main>
 
     <!-- Your bundled JS file -->

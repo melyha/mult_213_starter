@@ -146,6 +146,12 @@ button:active {
     box-shadow: 0 8px 16px 8px rgba(60, 64, 67, 0.2);
 }
 
+.card h2 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
 
 /* ===========================
    LOADING & ERROR STATES
@@ -156,6 +162,10 @@ button:active {
     background: #ffebee;
     color: #c62828;
     border-left: 4px solid #c62828;
+}
+
+#error-message h2 {
+    color: #c62828;
 }
 
 #error-message p {
