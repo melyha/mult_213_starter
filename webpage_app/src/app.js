@@ -13,7 +13,7 @@ stockForm.addEventListener("submit", async (e) => {
 
   // 4. Get user input
   const ticker = document.querySelector("#ticker").value.trim();
-  if (!city) return;
+  if (!ticker) return;
 
   // 5. Show loading message
   renderMessage(stockResults, "Loading stock data...");
