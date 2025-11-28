@@ -1,7 +1,7 @@
 // API functions to integrate with with Alpha Vantage Stock API
 // Reference: https://www.alphavantage.co/documentation/
 
-const API_KEY = 'YOUR_API_KEY_HERE';
+const API_KEY = 'demo';
 
 /**
  * Fetch current stock quote (price, change, etc.)

@@ -1,16 +1,38 @@
-# Instructions
+# Stock Price Tracker
 
-1. Read the `package.json`
-2. Run `npm install`
-3. Run `npm run watch`
-  - Bundle up your JS for you
-  - Put the bundle into `dist/main.js`
-4. Open your `index.html` and test out your application
+A web application that fetches real-time stock market data using the Alpha Vantage API.
 
-# Project Structure
+## Setup Instructions
 
-Remember Model - View - Controller
+1. **Install dependencies:**
+```bash
+   npm install
+```
 
-1. Model / API stuff in `api.js`
-2. View Layer / UI stuff in `dom.js`
-3. Application / Controller logic in `app.js`
+2. **Get a FREE API Key:**
+   - Visit: https://www.alphavantage.co/support/#api-key
+   - Enter your email to receive a free API key
+
+3. **Add your API Key:**
+   - Open `src/api.js`
+   - line 4: `const API_KEY = 'demo';`
+   - Replace `'demo'` with your actual API key
+
+
+4. **Run the application:**
+```bash
+   npm run watch
+```
+- Try ticker symbols like: **IBM**, **AAPL**, **TSLA**, **MSFT**
+
+## Features
+
+- Real-time stock quotes (current price, change, volume)
+- Company information (sector, industry)
+- Error handling with user-friendly messages
+  
+  
+## API Endpoints Used
+
+1. **GLOBAL_QUOTE** - Current stock price and metrics
+2. **OVERVIEW** - Company details and classification
