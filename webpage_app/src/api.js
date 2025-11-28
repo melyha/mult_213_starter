@@ -1,37 +1,75 @@
-// API functions to integrate with Open-Meteo Geocoding and Weather APIs
-// Reference: https://open-meteo.com/
+// API functions to integrate with with Alpha Vantage Stock API
+// Reference: https://www.alphavantage.co/documentation/
 
-export async function searchCity(city) {
-  // Start our call across the internet, using city as a parameter
-  const res = await fetch(
-    `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`
-  );
+const API_KEY = 'YOUR_API_KEY_HERE';
+
+/**
+ * Fetch current stock quote (price, change, etc.)
+ * Uses GLOBAL_QUOTE endpoint
+ */
+
+export async function fetchStockQuote(ticker)  {
+    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${ticker}&apikey=${API_KEY}`;
+ 
+  const res = await fetch(url);
+
+    
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
+  }
+  
 
   // Get the JSON from the HTTP request response
   const data = await res.json();
 
   // Log the data to look at it
-  console.log(data);
+  console.log('Stock Quote Data:', data);
 
-  // Return whatever data is in the 'results' key
-  return data.results || [];
+   // Check if we got valid data
+  if (data['Global Quote'] && Object.keys(data['Global Quote']).length > 0) {
+    return data['Global Quote'];
+  } else if (data['Note']) {
+    // API rate limit reached
+    throw new Error('API rate limit reached. Please try again later or use a different ticker.');
+  } else if (data['Error Message']) {
+    throw new Error('Invalid ticker symbol. Please check and try again.');
+  } else {
+    throw new Error('No data found for this ticker symbol.');
+  }
 }
 
-export async function fetchWeather(lat, lon) {
+/**
+ * Fetch company overview information
+ * Uses OVERVIEW endpoint
+ */
+
+export async function fetchCompanyOverview(ticker) {
+  const url = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=${API_KEY}`;
   // Start our call across the internet, using lat and long as a parameters
-  const res = await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
-  );
+  
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
+  }
+  
 
   // Get the JSON from the HTTP request response
   const data = await res.json();
   
   // Log the data to look at it
-  console.log(data);
+  console.log('Company Overview Data:', data);
   
-  // Return whatever data is in the 'results' key
-  return data.current_weather ?? "N/A";
+  // Check if we got valid data
+  if (data['Symbol']) {
+    return data;
+  } else if (data['Note']) {
+    throw new Error('API rate limit reached. Please try again later.');
+  } else {
+    throw new Error('No company information found for this ticker.');
+  }
 }
+
 
 /*
   Show off Fake / Stub API Services
