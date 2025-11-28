@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Weather Dashboard</title>
+    <title>Stock Price Tracker</title>
 
     <link rel="stylesheet" href="style.css" />
 
@@ -13,36 +13,23 @@
 
 <body>
     <main class="container">
-        <h1>Dashboard</h1>
+        <h1>Stock Price Tracker</h1>
 
-        <form id="city-form">
+        <form id="stock-form">
             <fieldset>
-                <legend>Search by City Name</legend>
-                <input id="city" placeholder="Enter a city" required />
-                <button>Search City</button>
+                <legend>Search Stock by Ticker Symbol</legend>
+                <label for="ticker">Ticker Symbol</label>
+                <input id="ticker" placeholder="e.g., AAPL, TSLA, IBM" required />
+                <button type="submit">Get Stock Info</button>
             </fieldset>
         </form>
 
-        <section id="city-list" class="card">
-            <p>Awaiting input…</p>
+        <section id="stock-results" class="card">
+            <p>Enter a stock ticker symbol to get started...</p>
         </section>
 
-        <form id="weather-form">
-            <fieldset>
-                <legend>Search by Coordinates</legend>
 
-                <label for="lat">Latitude</label>
-                <input id="lat" name="lat" type="number" step="any" min="-90" max="90" placeholder="e.g. 34.05" required />
-
-                <label for="lon">Longitude</label>
-                <input id="lon" name="lon" type="number" step="any" min="-180" max="180" placeholder="e.g. -118.24" required />
-
-                <button type="submit">Search Weather</button>
-            </fieldset>
-        </form>
-
-        <section id="weather-output" class="card">
-            <p>Awaiting input…</p>
+        <section id="error-message" class="card" style="display: none; background-color: #ffebee; color: #c62828;">
         </section>
     </main>
 
