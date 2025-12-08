@@ -18,8 +18,8 @@ function App() {
   return (
     <div className="app">
       <Header
-        title="Welcome to My Website!"
-        message="Thanks for visiting my site."
+        title="Welcome to my app: TaskFlow Pro"
+        message="Thanks for visiting my app."
       />
 
       <main className="main-content">
