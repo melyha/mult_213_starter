@@ -1,6 +1,6 @@
 import './Header.css';
 
-// Add a new component for the Header
+// Header component that displays title and message
 export function Header(props) {
     // props is some JSON that looks like {title: str, message: str}
     return (<>
