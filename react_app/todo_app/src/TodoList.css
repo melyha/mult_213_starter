@@ -1,0 +1,44 @@
+.todo-list-container {
+    margin: 1rem 0;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    gap: 0.5rem;
+}
+
+.todo-checkbox {
+    margin-right: 0.5rem;
+}
+
+.todo-text {
+    flex: 1;
+    cursor: pointer;
+}
+
+.todo-text.completed {
+    text-decoration: line-through;
+    color: #666;
+}
+
+.remove-completed-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.remove-completed-btn:hover {
+    background-color: #ff5252;
+}
