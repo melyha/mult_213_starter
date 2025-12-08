@@ -1,4 +1,5 @@
 import './TodoList.css';
+import { CheckCircle, RadioButtonUnchecked, Delete } from '@mui/icons-material';
 
 // TodoList component that displays a list of todos
 export function TodoList(props) {
@@ -9,22 +10,19 @@ export function TodoList(props) {
             <ul className="todo-list">
                 {todos.map((todo) => (
                     <li key={todo.id} className="todo-item">
-                        <input 
-                            type="checkbox" 
-                            id={`todo-${todo.id}`}
-                            defaultChecked={todo.completed}
-                            className="todo-checkbox"
-                        />
-                        <label 
-                            htmlFor={`todo-${todo.id}`}
-                            className={`todo-text ${todo.completed ? 'completed' : ''}`}
-                        >
+                        {todo.completed ? (
+                            <CheckCircle className="todo-icon completed" />
+                        ) : (
+                            <RadioButtonUnchecked className="todo-icon" />
+                        )}
+                        <span className={`todo-text ${todo.completed ? 'completed' : ''}`}>
                             {todo.text}
-                        </label>
+                        </span>
                     </li>
                 ))}
             </ul>
             <button className="remove-completed-btn">
+                 <Delete className="btn-icon" />
                 Remove Completed Items
             </button>
         </div>
