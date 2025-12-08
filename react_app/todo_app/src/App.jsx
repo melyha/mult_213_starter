@@ -32,10 +32,10 @@ function App() {
          <section className="card-section">
           <h2>Featured Card</h2>
           <Card 
-            title="My Card Title" 
-            subtitle="My Card Subtitle" 
-            content="This is the content of my card." 
-            image="https://example.com/my-image.jpg" 
+            title="Productivity Boost" 
+            subtitle="Daily Organization Tips" 
+            content="Stay organized and boost your productivity with our smart task management features." 
+            image="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=200&fit=crop&auto=format" 
           />
         </section>
         
