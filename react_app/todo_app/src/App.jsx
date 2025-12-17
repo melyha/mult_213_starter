@@ -1,17 +1,23 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import viteLogo from '/vite.svg';
 import { Header } from './Header';
 import { TodoList } from './TodoList';
 import { MyAccordion } from './MyAccordion';
 import reactLogo from './assets/react.svg';
+import { readLocalData, writeLocalData } from './db.js';
 
 function App() {
-  // Define the TODO models
-  const [todos, setTodos] = useState([]);
+  // Define the TODO models, we also give it the default / starting value
+  const [todos, setTodos] = useState(readLocalData('rememberedTodos') || []);
 
   // todos is going to be an empty list []
   // If I want to change todos, I need to use the setTodos() callback function
+
+  // Any time todos change, I want to persist to the DB (localStorage)
+  useEffect(() => {
+    writeLocalData('rememberedTodos', todos);
+  }, [todos]);
 
 
   // Set up add new TODO form handler
